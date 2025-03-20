@@ -6,7 +6,7 @@ import {
   getTrackById,
   searchArtistByName,
 } from "@/lib/api";
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
 
 export function useAritstQuery(id: string | number) {
   return useSuspenseQuery({
@@ -15,7 +15,7 @@ export function useAritstQuery(id: string | number) {
   });
 }
 
-export function useAritstAlbumsDQuery(id: string | number) {
+export function useAritstAlbumsQuery(id: string | number) {
   return useSuspenseQuery({
     queryKey: ["artist-albums", id],
     queryFn: () => getArtistAlbumsById(id),
@@ -43,9 +43,16 @@ export function useTrackQuery(id: string | number) {
   });
 }
 
-export function useSearchArtists(name: string) {
-  return useSuspenseQuery({
+export function useSearchArtists({
+  name,
+  start = true,
+}: {
+  name: string;
+  start?: boolean;
+}) {
+  return useQuery({
     queryKey: ["search-artists", name],
     queryFn: () => searchArtistByName(name),
+    enabled: start,
   });
 }

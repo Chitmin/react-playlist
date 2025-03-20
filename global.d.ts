@@ -49,10 +49,13 @@ type SingleAlbum = {
   album: [Album];
 };
 
-type Albums = { album: Album[] };
+type Albums = { albums: Album[] };
 
 type SingleTrack = {
   track: [Track];
 };
 
 type Tracks = { track: Track[] };
+
+interface KeyDownEvent extends React.KeyboardEvent<HTMLInputElement> {}
+interface ChangeEvent extends React.ChangeEvent<HTMLInputElement> {}
