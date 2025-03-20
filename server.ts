@@ -40,7 +40,7 @@ app.get("/api/artists/:id/albums", async (req: Request, res: Response) => {
     res.json(data);
   } catch (error) {
     console.error(error);
-    res.status(404).json({ error: "Album not found for given artist!" });
+    res.status(404).json({ error: "No albums found for given artist!" });
   }
 });
 
@@ -55,6 +55,34 @@ app.get("/api/albums/:id", async (req: Request, res: Response) => {
   } catch (error) {
     console.error(error);
     res.status(404).json({ error: "Album not found!" });
+  }
+});
+
+app.get("/api/albums/:id/tracks", async (req: Request, res: Response) => {
+  const id = req.params.id;
+
+  try {
+    const result = await fetch(`${AUDIO_BASE_URL}/${token}/track.php?m=${id}`);
+    const { data } = await result.json();
+
+    res.json(data);
+  } catch (error) {
+    console.error(error);
+    res.status(404).json({ error: "No tracks found for given album!" });
+  }
+});
+
+app.get("/api/tracks/:id", async (req: Request, res: Response) => {
+  const id = req.params.id;
+
+  try {
+    const result = await fetch(`${AUDIO_BASE_URL}/${token}/track.php?h=${id}`);
+    const { data } = await result.json();
+
+    res.json(data);
+  } catch (error) {
+    console.error(error);
+    res.status(404).json({ error: "Track not found!" });
   }
 });
 
