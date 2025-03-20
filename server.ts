@@ -21,9 +21,9 @@ app.get("/api/artists/:id", async (req: Request, res: Response) => {
 
   try {
     const result = await fetch(`${AUDIO_BASE_URL}/${token}/artist.php?i=${id}`);
-    const { data } = await result.json();
+    const { artists } = await result.json();
 
-    res.json(data);
+    res.json({ artist: artists[0] });
   } catch (error) {
     console.error(error);
     res.status(404).json({ error: "Artist not found!" });
@@ -35,9 +35,9 @@ app.get("/api/artists/:id/albums", async (req: Request, res: Response) => {
 
   try {
     const result = await fetch(`${AUDIO_BASE_URL}/${token}/album.php?i=${id}`);
-    const { data } = await result.json();
+    const { album } = await result.json();
 
-    res.json(data);
+    res.json({ albums: album });
   } catch (error) {
     console.error(error);
     res.status(404).json({ error: "No albums found for given artist!" });
@@ -49,9 +49,9 @@ app.get("/api/albums/:id", async (req: Request, res: Response) => {
 
   try {
     const result = await fetch(`${AUDIO_BASE_URL}/${token}/album.php?m=${id}`);
-    const { data } = await result.json();
+    const { album } = await result.json();
 
-    res.json(data);
+    res.json({ album: album[0] });
   } catch (error) {
     console.error(error);
     res.status(404).json({ error: "Album not found!" });
@@ -63,9 +63,9 @@ app.get("/api/albums/:id/tracks", async (req: Request, res: Response) => {
 
   try {
     const result = await fetch(`${AUDIO_BASE_URL}/${token}/track.php?m=${id}`);
-    const { data } = await result.json();
+    const { track } = await result.json();
 
-    res.json(data);
+    res.json({ tracks: track });
   } catch (error) {
     console.error(error);
     res.status(404).json({ error: "No tracks found for given album!" });
@@ -77,9 +77,9 @@ app.get("/api/tracks/:id", async (req: Request, res: Response) => {
 
   try {
     const result = await fetch(`${AUDIO_BASE_URL}/${token}/track.php?h=${id}`);
-    const { data } = await result.json();
+    const { track } = await result.json();
 
-    res.json(data);
+    res.json({ track: track[0] });
   } catch (error) {
     console.error(error);
     res.status(404).json({ error: "Track not found!" });
@@ -93,9 +93,9 @@ app.get("/api/search/artists/:name", async (req: Request, res: Response) => {
     const result = await fetch(
       `${AUDIO_BASE_URL}/${token}/search.php?s=${name}`
     );
-    const { data } = await result.json();
+    const { artists } = await result.json();
 
-    res.json(data);
+    res.json({ artists });
   } catch (error) {
     console.error(error);
     res.status(404).json({ error: "Cannot find Artists!" });
