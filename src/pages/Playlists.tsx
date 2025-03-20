@@ -1,13 +1,13 @@
-import { SidebarContent } from "@/components/sidebar-content";
+import { SidebarLayout } from "@/components/sidebar-layout";
 import { SkeletonPage } from "@/components/skeleton-page";
 
 export default function Playlists() {
   return (
-    <SidebarContent>
+    <SidebarLayout>
       <>
         <h1>Playlists</h1>
         <SkeletonPage />
       </>
-    </SidebarContent>
+    </SidebarLayout>
   );
 }

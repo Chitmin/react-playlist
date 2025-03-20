@@ -1,13 +1,13 @@
-import { SidebarContent } from "@/components/sidebar-content";
+import { SidebarLayout } from "@/components/sidebar-layout";
 import { SkeletonPage } from "@/components/skeleton-page";
 
 export default function TopCharts() {
   return (
-    <SidebarContent>
+    <SidebarLayout>
       <>
         <h1>TopCharts</h1>
         <SkeletonPage />
       </>
-    </SidebarContent>
+    </SidebarLayout>
   );
 }
