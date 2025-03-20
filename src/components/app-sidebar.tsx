@@ -31,28 +31,27 @@ const data = {
   navMain: [
     {
       title: "Home",
-      url: "#",
+      url: "/",
       icon: House,
-      isActive: true,
     },
     {
       title: "Songs",
-      url: "#",
+      url: "/songs",
       icon: ListVideo,
     },
     {
-      title: "Playlist",
-      url: "#",
+      title: "Playlists",
+      url: "/playlists",
       icon: ListMusic,
     },
     {
       title: "Just For You",
-      url: "#",
+      url: "/just-for-you",
       icon: User,
     },
     {
       title: "Top Charts",
-      url: "#",
+      url: "/top-charts",
       icon: TrendingUp,
     },
   ],

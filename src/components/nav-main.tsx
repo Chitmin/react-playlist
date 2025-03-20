@@ -18,6 +18,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
+import { Link } from "@tanstack/react-router";
 
 export function NavMain({
   items,
@@ -48,16 +49,13 @@ export function NavMain({
           >
             <SidebarMenuItem>
               <SidebarMenuButton asChild tooltip={item.title}>
-                <a href={item.url}>
+                <Link
+                  to={item.url}
+                  className="text-gray-400 [&.active]:text-gray-600"
+                >
                   <item.icon />
-                  <span
-                    className={`font-bold text-md ${
-                      item.isActive ? "text-gray-600" : "text-gray-400"
-                    }`}
-                  >
-                    {item.title}
-                  </span>
-                </a>
+                  <span className="font-bold text-md">{item.title}</span>
+                </Link>
               </SidebarMenuButton>
               {item.items?.length ? (
                 <>
@@ -72,9 +70,14 @@ export function NavMain({
                       {item.items?.map((subItem) => (
                         <SidebarMenuSubItem key={subItem.title}>
                           <SidebarMenuSubButton asChild>
-                            <a href={subItem.url}>
-                              <span>{subItem.title}</span>
-                            </a>
+                            <Link
+                              to={subItem.url}
+                              className="text-gray-400 [&.active]:text-gray-600"
+                            >
+                              <span className="font-bold text-sm">
+                                {subItem.title}
+                              </span>
+                            </Link>
                           </SidebarMenuSubButton>
                         </SidebarMenuSubItem>
                       ))}
