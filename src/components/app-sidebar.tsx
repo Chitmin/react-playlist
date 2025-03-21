@@ -68,7 +68,7 @@ const data = {
     },
     {
       name: "Booping at Adobe",
-      url: "booping-at-adobe",
+      url: "/booping-at-adobe",
       icon: ListVideo,
     },
     {

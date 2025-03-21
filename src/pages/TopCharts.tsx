@@ -5,7 +5,7 @@ export default function TopCharts() {
   return (
     <SidebarLayout>
       <div className="px-8 py-4">
-        <h1 className="font-bold text-center text-2xl">Top Charts</h1>
+        <h1 className="font-bold text-center text-2xl mb-8">Top Charts</h1>
         <SkeletonPage />
       </div>
     </SidebarLayout>
