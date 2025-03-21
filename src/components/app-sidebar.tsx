@@ -55,21 +55,26 @@ const data = {
       icon: TrendingUp,
     },
   ],
-  projects: [
+  personalLists: [
     {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
+      name: "Workout Mix",
+      url: "/workout-mix",
+      icon: ListVideo,
     },
     {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
+      name: "Chillin' at Home",
+      url: "/chillin-at-home",
+      icon: ListVideo,
     },
     {
-      name: "Travel",
-      url: "#",
-      icon: Map,
+      name: "Booping at Adobe",
+      url: "booping-at-adobe",
+      icon: ListVideo,
+    },
+    {
+      name: "XD 4 Life",
+      url: "/xd-for-life",
+      icon: ListVideo,
     },
   ],
 };
@@ -93,7 +98,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        <NavProjects projects={data.personalLists} />
       </SidebarContent>
     </Sidebar>
   );

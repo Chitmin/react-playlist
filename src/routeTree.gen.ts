@@ -11,13 +11,29 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as XdForLifeImport } from './routes/xd-for-life'
+import { Route as WorkoutMixImport } from './routes/workout-mix'
 import { Route as TopChartsImport } from './routes/top-charts'
 import { Route as SongsImport } from './routes/songs'
 import { Route as PlaylistsImport } from './routes/playlists'
 import { Route as JustForYouImport } from './routes/just-for-you'
+import { Route as ChillinAtHomeImport } from './routes/chillin-at-home'
+import { Route as BoopingAtAdobeImport } from './routes/booping-at-adobe'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
+
+const XdForLifeRoute = XdForLifeImport.update({
+  id: '/xd-for-life',
+  path: '/xd-for-life',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const WorkoutMixRoute = WorkoutMixImport.update({
+  id: '/workout-mix',
+  path: '/workout-mix',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const TopChartsRoute = TopChartsImport.update({
   id: '/top-charts',
@@ -43,6 +59,18 @@ const JustForYouRoute = JustForYouImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const ChillinAtHomeRoute = ChillinAtHomeImport.update({
+  id: '/chillin-at-home',
+  path: '/chillin-at-home',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const BoopingAtAdobeRoute = BoopingAtAdobeImport.update({
+  id: '/booping-at-adobe',
+  path: '/booping-at-adobe',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
@@ -58,6 +86,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/booping-at-adobe': {
+      id: '/booping-at-adobe'
+      path: '/booping-at-adobe'
+      fullPath: '/booping-at-adobe'
+      preLoaderRoute: typeof BoopingAtAdobeImport
+      parentRoute: typeof rootRoute
+    }
+    '/chillin-at-home': {
+      id: '/chillin-at-home'
+      path: '/chillin-at-home'
+      fullPath: '/chillin-at-home'
+      preLoaderRoute: typeof ChillinAtHomeImport
       parentRoute: typeof rootRoute
     }
     '/just-for-you': {
@@ -88,6 +130,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TopChartsImport
       parentRoute: typeof rootRoute
     }
+    '/workout-mix': {
+      id: '/workout-mix'
+      path: '/workout-mix'
+      fullPath: '/workout-mix'
+      preLoaderRoute: typeof WorkoutMixImport
+      parentRoute: typeof rootRoute
+    }
+    '/xd-for-life': {
+      id: '/xd-for-life'
+      path: '/xd-for-life'
+      fullPath: '/xd-for-life'
+      preLoaderRoute: typeof XdForLifeImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -95,58 +151,100 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/booping-at-adobe': typeof BoopingAtAdobeRoute
+  '/chillin-at-home': typeof ChillinAtHomeRoute
   '/just-for-you': typeof JustForYouRoute
   '/playlists': typeof PlaylistsRoute
   '/songs': typeof SongsRoute
   '/top-charts': typeof TopChartsRoute
+  '/workout-mix': typeof WorkoutMixRoute
+  '/xd-for-life': typeof XdForLifeRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/booping-at-adobe': typeof BoopingAtAdobeRoute
+  '/chillin-at-home': typeof ChillinAtHomeRoute
   '/just-for-you': typeof JustForYouRoute
   '/playlists': typeof PlaylistsRoute
   '/songs': typeof SongsRoute
   '/top-charts': typeof TopChartsRoute
+  '/workout-mix': typeof WorkoutMixRoute
+  '/xd-for-life': typeof XdForLifeRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/booping-at-adobe': typeof BoopingAtAdobeRoute
+  '/chillin-at-home': typeof ChillinAtHomeRoute
   '/just-for-you': typeof JustForYouRoute
   '/playlists': typeof PlaylistsRoute
   '/songs': typeof SongsRoute
   '/top-charts': typeof TopChartsRoute
+  '/workout-mix': typeof WorkoutMixRoute
+  '/xd-for-life': typeof XdForLifeRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/just-for-you' | '/playlists' | '/songs' | '/top-charts'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/just-for-you' | '/playlists' | '/songs' | '/top-charts'
-  id:
-    | '__root__'
+  fullPaths:
     | '/'
+    | '/booping-at-adobe'
+    | '/chillin-at-home'
     | '/just-for-you'
     | '/playlists'
     | '/songs'
     | '/top-charts'
+    | '/workout-mix'
+    | '/xd-for-life'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/'
+    | '/booping-at-adobe'
+    | '/chillin-at-home'
+    | '/just-for-you'
+    | '/playlists'
+    | '/songs'
+    | '/top-charts'
+    | '/workout-mix'
+    | '/xd-for-life'
+  id:
+    | '__root__'
+    | '/'
+    | '/booping-at-adobe'
+    | '/chillin-at-home'
+    | '/just-for-you'
+    | '/playlists'
+    | '/songs'
+    | '/top-charts'
+    | '/workout-mix'
+    | '/xd-for-life'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BoopingAtAdobeRoute: typeof BoopingAtAdobeRoute
+  ChillinAtHomeRoute: typeof ChillinAtHomeRoute
   JustForYouRoute: typeof JustForYouRoute
   PlaylistsRoute: typeof PlaylistsRoute
   SongsRoute: typeof SongsRoute
   TopChartsRoute: typeof TopChartsRoute
+  WorkoutMixRoute: typeof WorkoutMixRoute
+  XdForLifeRoute: typeof XdForLifeRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BoopingAtAdobeRoute: BoopingAtAdobeRoute,
+  ChillinAtHomeRoute: ChillinAtHomeRoute,
   JustForYouRoute: JustForYouRoute,
   PlaylistsRoute: PlaylistsRoute,
   SongsRoute: SongsRoute,
   TopChartsRoute: TopChartsRoute,
+  WorkoutMixRoute: WorkoutMixRoute,
+  XdForLifeRoute: XdForLifeRoute,
 }
 
 export const routeTree = rootRoute
@@ -160,14 +258,24 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/booping-at-adobe",
+        "/chillin-at-home",
         "/just-for-you",
         "/playlists",
         "/songs",
-        "/top-charts"
+        "/top-charts",
+        "/workout-mix",
+        "/xd-for-life"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/booping-at-adobe": {
+      "filePath": "booping-at-adobe.tsx"
+    },
+    "/chillin-at-home": {
+      "filePath": "chillin-at-home.tsx"
     },
     "/just-for-you": {
       "filePath": "just-for-you.tsx"
@@ -180,6 +288,12 @@ export const routeTree = rootRoute
     },
     "/top-charts": {
       "filePath": "top-charts.tsx"
+    },
+    "/workout-mix": {
+      "filePath": "workout-mix.tsx"
+    },
+    "/xd-for-life": {
+      "filePath": "xd-for-life.tsx"
     }
   }
 }
