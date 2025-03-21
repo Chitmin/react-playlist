@@ -26,3 +26,15 @@ export function SkeletonCards({ count = 3 }: { count?: number | string }) {
     </div>
   );
 }
+
+export function SkeletonAudioPlayer() {
+  return (
+    <div className="flex flex-wrap justify-between">
+      <Skeleton className="aspect-3/1 rounded-xl h-18 bg-muted/50" />
+      <Skeleton className="aspect-3/1 rounded-xl h-18 bg-muted/50" />
+      <Skeleton className="aspect-3/1 rounded-xl h-18 bg-muted/50" />
+      <Skeleton className="aspect-3/1 rounded-xl h-18 bg-muted/50" />
+      <Skeleton className="aspect-3/1 rounded-xl h-18 bg-muted/50" />
+    </div>
+  );
+}

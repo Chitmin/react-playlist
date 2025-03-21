@@ -46,16 +46,16 @@ type SingleArtist = {
 type Artists = { artists: Artist[] };
 
 type SingleAlbum = {
-  album: [Album];
+  album: Album;
 };
 
 type Albums = { albums: Album[] };
 
 type SingleTrack = {
-  track: [Track];
+  track: Track;
 };
 
-type Tracks = { track: Track[] };
+type Tracks = { tracks: Track[] };
 
 interface KeyDownEvent extends React.KeyboardEvent<HTMLInputElement> {}
 interface ChangeEvent extends React.ChangeEvent<HTMLInputElement> {}

@@ -28,7 +28,7 @@ export default function Home() {
           {data?.artists && (
             <div className="mb-4">
               {data.artists.map((artist) => (
-                <ArtistAlbums id={artist.idArtist} />
+                <ArtistAlbums id={artist.idArtist} key={artist.idArtist} />
               ))}
               <Separator className="my-4" />
             </div>

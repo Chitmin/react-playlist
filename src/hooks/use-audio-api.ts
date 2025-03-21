@@ -22,17 +22,31 @@ export function useAritstAlbumsQuery(id: string | number) {
   });
 }
 
-export function useAlbumQuery(id: string | number) {
-  return useSuspenseQuery({
+export function useAlbumQuery({
+  id,
+  start = true,
+}: {
+  id: string | number;
+  start?: boolean;
+}) {
+  return useQuery({
     queryKey: ["get-album", id],
     queryFn: () => getAlbumById(id),
+    enabled: start,
   });
 }
 
-export function useAlbumTracksQuery(id: string | number) {
-  return useSuspenseQuery({
+export function useAlbumTracksQuery({
+  id,
+  start = true,
+}: {
+  id: string | number;
+  start?: boolean;
+}) {
+  return useQuery({
     queryKey: ["album-tracks", id],
     queryFn: () => getAlbumTracksById(id),
+    enabled: start,
   });
 }
 

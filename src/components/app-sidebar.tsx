@@ -76,7 +76,12 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar collapsible="icon" variant="inset" {...props}>
+    <Sidebar
+      collapsible="icon"
+      variant="inset"
+      {...props}
+      className="max-h-fit h-fit overflow-hidden px-2 pt-2 pb-0 rounded-bl-[65px] overflow-hidden"
+    >
       <SidebarHeader className="mb-8">
         <SidebarMenu>
           <SidebarMenuItem>
