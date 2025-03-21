@@ -54,11 +54,6 @@ export default function Home() {
                     <RecentlyPlayed
                       tracks={tracksQ.tracks.slice(maxItems.recents * -1)}
                     />
-                    {/* <div className="mr-4">
-                      <RecentlyPlayed
-                        tracks={tracksQ.tracks.slice(maxItems.recents * -1)}
-                      />
-                    </div> */}
                     <RecommendForYou
                       tracks={tracksQ.tracks.slice(maxItems.recommends * -1)}
                     />
