@@ -27,7 +27,7 @@ export function AlbumJumbo({ album }: { album: Album }) {
 
   return (
     <div
-      className={`bg-cover bg-center lg:min-w-140 h-full text-white py-4 px-8 mb-4 shadow-lg hover:shadow-2xl rounded-lg`}
+      className={`transition duration-50 ease-in-out bg-cover bg-center lg:min-w-140 h-full text-white py-4 px-8 mb-4 shadow-lg hover:shadow-2xl hover:scale-110 rounded-lg`}
       style={{ backgroundImage: `url(${img})` }}
     >
       <div className="flex flex-col justify-between min-h-[24rem]">
